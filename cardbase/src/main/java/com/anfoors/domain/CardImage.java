@@ -1,6 +1,9 @@
 package com.anfoors.domain;
 
+import org.hibernate.validator.constraints.URL;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
 @Entity
@@ -8,12 +11,17 @@ public class CardImage {
 
     @Id
     @GeneratedValue
-    UUID id;
+    private UUID id;
 
     @OneToOne(mappedBy = "image")
-    ReleasedCard card;
+    private ReleasedCard card;
 
     @ManyToOne
     @JoinColumn
-    Artist artist;
+    private Artist artist;
+
+    @URL
+    @NotNull
+    @Column(unique = true)
+    private String behoURL;
 }

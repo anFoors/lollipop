@@ -1,4 +1,6 @@
-package com.anfoors.domain;
+package com.anfoors.model;
+
+import com.anfoors.domain.ResourceType;
 
 import java.util.HashMap;
 import java.util.Map;

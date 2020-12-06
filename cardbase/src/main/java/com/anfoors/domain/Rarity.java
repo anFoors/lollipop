@@ -6,15 +6,16 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-public class Artist {
+public class Rarity {
 
     @Id
     @GeneratedValue
     private UUID id;
 
-    @OneToMany(mappedBy = "artist")
-    private List<CardImage> cardImages;
+    @OneToMany(mappedBy = "rarity")
+    List<ReleasedCard> cardsOfRarity;
 
     @NotNull
+    @Column(unique = true)
     private String name;
 }

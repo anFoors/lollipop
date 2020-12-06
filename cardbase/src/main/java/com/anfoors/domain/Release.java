@@ -1,6 +1,10 @@
 package com.anfoors.domain;
 
+import org.hibernate.validator.constraints.URL;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -10,8 +14,17 @@ public class Release {
 
     @Id
     @GeneratedValue
-    UUID id;
+    private UUID id;
 
     @OneToMany(mappedBy = "release")
-    List<ReleasedCard> releasedCards;
+    private List<ReleasedCard> releasedCards;
+
+    @NotNull
+    @Temporal(TemporalType.DATE)
+    private Date releaseDate;
+
+    @URL
+    @NotNull
+    @Column(unique = true)
+    private String behoURL;
 }

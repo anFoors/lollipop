@@ -1,26 +1,23 @@
 package com.anfoors.domain;
 
-public enum ResourceType {
-    MANA("M", "Mana"),
-    BONE("SZK", "Szörnykomponens"),
-    BUILDER("É", "Építő"),
-    SACRIFICE("Á", "Áldozás"),
-    NECRON("N", "Nekron"),
-    ZAN("Z", "Zan");
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import java.util.UUID;
 
-    private final String textSymbol;
-    private final String name;
+@Entity
+public class ResourceType {
 
-    ResourceType(String textSymbol, String name) {
-        this.textSymbol = textSymbol;
-        this.name = name;
-    }
+    @Id
+    @GeneratedValue
+    private UUID id;
 
-    public String getTextSymbol() {
-        return textSymbol;
-    }
+    @NotNull
+    private String textSymbol;
 
-    public String getName() {
-        return name;
-    }
+    @NotNull
+    @Column(unique = true)
+    private String name;
 }

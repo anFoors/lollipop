@@ -1,30 +1,21 @@
 package com.anfoors.domain;
 
-public enum CardColor {
-    ELENIOS("El", "Elenios"),
-    RAIA("Ra", "Raia"),
-    SHERAN("Sh", "Sheran"),
-    FAIRLIGHT("Fa", "Fairlight"),
-    RHATT("Rh", "Rhatt"),
-    THARR("Th", "Tharr"),
-    CHARADIN("Ch", "Chara-din"),
-    DORNODON("Do", "Dornodon"),
-    LEAH("Le", "Leah"),
-    BUFA("Bu", "Bufa");
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.List;
+import java.util.UUID;
 
-    private String textSymbol;
+@Entity
+public class CardColor {
+
+    @Id
+    @GeneratedValue
+    private UUID id;
+
+    @ManyToMany(mappedBy = "colors")
+    private List<Card> cardsOfColor;
+
+    @NotNull
+    @Column(unique = true)
     private String name;
-
-    CardColor(String textSymbol, String name) {
-        this.textSymbol = textSymbol;
-        this.name = name;
-    }
-
-    public String getTextSymbol() {
-        return textSymbol;
-    }
-
-    public String getName() {
-        return name;
-    }
 }
