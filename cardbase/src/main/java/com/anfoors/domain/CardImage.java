@@ -1,7 +1,5 @@
 package com.anfoors.domain;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import java.util.UUID;
 
@@ -9,14 +7,13 @@ import java.util.UUID;
 public class CardImage {
 
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    @GeneratedValue
     UUID id;
 
     @OneToOne(mappedBy = "image")
     ReleasedCard card;
 
     @ManyToOne
-    @JoinColumn()
+    @JoinColumn
     Artist artist;
 }

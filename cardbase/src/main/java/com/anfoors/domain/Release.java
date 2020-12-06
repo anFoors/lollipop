@@ -1,7 +1,5 @@
 package com.anfoors.domain;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import java.util.List;
 import java.util.UUID;
@@ -11,8 +9,7 @@ import java.util.UUID;
 public class Release {
 
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    @GeneratedValue
     UUID id;
 
     @OneToMany(mappedBy = "release")
