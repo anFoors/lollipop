@@ -1,4 +1,6 @@
-package domain;
+package com.anfoors.domain;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.List;
@@ -8,9 +10,9 @@ import java.util.UUID;
 public class Release {
 
     @Id
-    @GeneratedValue
-    @Column(name = "id")
-    UUID uuid;
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    UUID id;
 
     @OneToMany(mappedBy = "release")
     List<ReleasedCard> releasedCards;
