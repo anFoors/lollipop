@@ -8,16 +8,16 @@ public enum ResourceType {
     NECRON("N", "Nekron"),
     ZAN("Z", "Zan");
 
-    private final String symbol;
+    private final String textSymbol;
     private final String name;
 
-    ResourceType(String symbol, String name) {
-        this.symbol = symbol;
+    ResourceType(String textSymbol, String name) {
+        this.textSymbol = textSymbol;
         this.name = name;
     }
 
-    public String getSymbol() {
-        return symbol;
+    public String getTextSymbol() {
+        return textSymbol;
     }
 
     public String getName() {
