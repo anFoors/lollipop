@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-public class Card {
+public abstract class Card {
 
     @Id
     @GeneratedValue
